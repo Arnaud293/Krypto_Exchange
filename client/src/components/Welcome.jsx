@@ -19,7 +19,7 @@ const Input = ({ placeholder, name, type, value, handleChange }) => (
 
 const Welcome = () => {
 
-  const { connectWallet, currentAccount, formData, sendTransaction, handleChange } = useContext(TransactionsContext);
+  const { connectWallet, currentAccount, formData, sendTransaction, handleChange, isLoading } = useContext(TransactionsContext);
   
 
 
@@ -95,7 +95,7 @@ const Welcome = () => {
                 <Input placeholder="Keyword (Gif)" name="keyword" type="text" handleChange={handleChange}/>
                 <Input placeholder="Enter message" name="message" type="text" handleChange={handleChange}/>
                 <div className="h-[1px] w-full bg-gray-400 my-2" />
-                {false ? (
+                {isLoading ? (
                     <Loader />
                 ) : (
                     <button type="button" onClick={handleSubmit} className="text-white w-full mt-2 border-[1px] p-2 border-[#3d4f7c] rounded-full cursor-pointer">
